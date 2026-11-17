@@ -1,58 +1,78 @@
-# Schulz Lab — website
+# Schulz Lab website
 
-A fast, responsive, accessible lab website for the Schulz Lab at the University of Missouri. No frameworks, subscriptions, compilation, or paid hosting needed.
+The entire website is one file: **`index.html`**. It is hosted for free by **GitHub Pages**.
+You don't need any software beyond a web browser.
 
-## See it on your computer first
+---
 
-Open `index.html` in Chrome, Safari, or Firefox. If you want to preview through a local web server instead, run `python3 -m http.server 8000` in this folder and visit `http://localhost:8000`.
+## Part 1 — One-time setup (about 15 minutes)
 
-## Publish on GitHub Pages — beginner method (no coding software)
+### 1. Create a GitHub account
+1. Go to <https://github.com/signup> and create an account.
+2. Your **username** will appear in the website address, e.g. username `schulzlab` → `https://schulzlab.github.io`.
+   Choose it with that in mind.
 
-1. Go to https://github.com and sign in (or create a free account).
-2. Click the **+** at the top right, then **New repository**.
-3. Name the repository `schulz-lab` (or another name); select **Public**; click **Create repository**.
-4. On the new repository page, select **uploading an existing file** (or **Add file > Upload files** if this option is shown).
-5. **Unzip the downloaded project first.** Upload the *contents* of the `schulz-lab-website` folder, not the ZIP itself. GitHub must show `index.html` in the repository's top level. Ensure the `assets` folder and its SVG files are uploaded too. If GitHub's web upload does not preserve folders, upload the two SVG files using **Add file > Create new file** and name each `assets/favicon.svg` and `assets/social-card.svg`, pasting the SVG content from the downloaded files.
-6. Scroll down and click **Commit changes**.
-7. Open **Settings** in your repository → **Pages** (in the left sidebar).
-8. Under **Build and deployment**, select **Deploy from a branch**. Choose branch **main** and folder **/(root)**, then click **Save**.
-9. When publishing completes, return to **Settings → Pages**. Your site URL will be shown. It normally looks like `https://YOUR-USERNAME.github.io/schulz-lab/`.
-10. Test your site on a phone and a computer. Send the link to colleagues for proofreading before sharing broadly.
+### 2. Create a repository (the folder that holds the site)
+1. Once signed in, click the **+** in the top-right corner → **New repository**.
+2. **Repository name** — choose one of these:
+   - `YOURUSERNAME.github.io` (e.g. `schulzlab.github.io`) → the site lives at **https://schulzlab.github.io** ← *recommended, cleanest address*
+   - anything else, e.g. `lab-website` → the site lives at `https://YOURUSERNAME.github.io/lab-website`
+3. Set it to **Public** (free GitHub Pages requires this).
+4. Leave everything else as is and click **Create repository**.
 
-> GitHub Pages can take several minutes to show the first version. If it shows a 404, confirm that the repository is public, Pages uses `main` / `/(root)`, and `index.html` is in the top level rather than nested inside a folder.
+### 3. Upload the website files
+1. On the new, empty repository page, click the link **"uploading an existing file"**.
+2. Unzip the `schulzlab-website.zip` you downloaded. Drag **`index.html`**, **`README.md`**, and the **`images`** folder into the browser window.
+3. Scroll down and click the green **Commit changes** button. ("Commit" is GitHub's word for "save".)
 
-## Make changes later
+### 4. Turn on GitHub Pages
+1. In the repository, click **Settings** (top menu, gear icon).
+2. In the left sidebar, click **Pages**.
+3. Under **Build and deployment → Source**, choose **Deploy from a branch**.
+4. Under **Branch**, choose **main** and **/ (root)**, then click **Save**.
+5. Wait 1–2 minutes and refresh the page. A box will show **"Your site is live at …"** with the link.
 
-- In GitHub, open `index.html` and click the **pencil** icon (Edit this file). Change the words and click **Commit changes**. The live site will update after GitHub republishes it.
-- `styles.css` changes colors, layout, and fonts.
-- `script.js` is optional small functionality for the mobile menu and copyright year.
-- To add a lab member, copy the HTML block beginning `<div class="person-feature">` in `index.html`, paste another block below it, and replace name, initials, and description. Or keep the page streamlined with only the PI.
-- To add a paper, copy one `<a class="pub-row" ...>...</a>` item, replace its link, year, title, authors, and journal; keep newest first.
-- To change the email address, search all files for `schulzd@missouri.edu`.
-- To change the main heading, search `The nervous system` in `index.html`.
+That's it. The site is live.
 
-## Important prelaunch edits
+---
 
-- **Verify** your team's names, titles, publications, research directions, and whether you are recruiting before sharing broadly. This draft deliberately omits the old Wix member list rather than treating it as current.
-- The selected publications are manually curated; the Google Scholar button points to the current listing.
-- Add photos **only if you have permission** to use them; you can add an `<img>` or replace the designed neuron illustration if desired.
-- The prospective-student note invites inquiries, **not** a guarantee that a funded position exists.
-- The Google Fonts stylesheet requires internet. The page still works with Georgia/Arial fallback fonts offline.
-- If you want a custom domain later, GitHub Pages supports it; first get the default `.github.io` address working, then follow https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site .
+## Part 2 — Updating the site later
 
-## Search visibility
+Every edit happens in the browser:
 
-The site contains descriptive page titles, a summary, heading hierarchy, structured data (schema.org), and public links to your faculty profile and Scholar page. Once published, link to this new URL from your MU faculty page, Scholar profile (if editable), program site, and email signature. You can also submit your site to https://search.google.com/search-console . To identify the *site's canonical URL*, replace the research organization `url` in the JSON-LD block of `index.html` with the actual new GitHub Pages address after launch.
+1. Open your repository on github.com and click **`index.html`**.
+2. Click the **pencil icon** (✏️ "Edit this file") in the top-right of the file view.
+3. Make your change (see recipes below).
+4. Click **Commit changes…** → **Commit changes**.
+5. The live site updates in about a minute. (If you don't see the change, hard-refresh: Ctrl+Shift+R on Windows, Cmd+Shift+R on Mac.)
 
-## File list
+Tip: in the editor, press **Ctrl+F / Cmd+F** to jump to the section you want. Each section is marked with a banner comment like `<!-- ===================== PEOPLE ===================== -->`.
 
-- `index.html`: full page content and metadata
-- `styles.css`: design and mobile responsiveness
-- `script.js`: mobile navigation and year
-- `assets/favicon.svg`: browser tab icon
-- `assets/social-card.svg`: social preview image (some platforms prefer a PNG and an absolute URL)
-- `.nojekyll`: ensures GitHub Pages serves the exact static files
+### Recipe: add a new publication
+Search for `PUBLICATION — copy from here`. Copy that whole `<li class="pub reveal"> … </li>` block, paste it **just below** the `<ol class="pubs">` line (so the newest paper sits at the top), and edit the year, title, authors, journal, and DOI link.
 
-## Notes on accuracy
+### Recipe: add or remove a lab member
+Search for `LAB MEMBER — copy from here`. Copy one `<div class="member reveal"> … </div>` block, paste it next to the others, and edit it.
+To remove someone, delete their whole block, from `<div class="member reveal">` through its closing `</div>`.
+The two letters in `<div class="avatar">AR</div>` are their initials.
 
-Built using the publicly available University of Missouri faculty page, the prior lab site, the MU Interdisciplinary Neuroscience Program profile, and identifiable journal links. The live Google Scholar list could not be directly retrieved, so the selected papers are **not** claimed to be the latest papers. Check citations and any new manuscripts before launch.
+### Recipe: add photos
+1. In the repository, open the **`images`** folder → **Add file → Upload files** → upload e.g. `rosete.jpg` → **Commit changes**.
+2. In `index.html`, replace the initials with the image:
+   `<div class="avatar"><img src="images/rosete.jpg" alt="Arturo Rosete"></div>`
+3. To host your own PI photo instead of linking to the Mizzou website, upload `images/schulz.jpg` and change the `src="https://biology.missouri.edu/..."` to `src="images/schulz.jpg"`.
+
+Keep photos under ~500 KB (square for lab members, portrait for the PI).
+
+### Recipe: change colors or fonts
+Near the top of `index.html`, under `COLORS & FONTS`, change the values, e.g. `--gold: #f1b82d;`.
+
+---
+
+## Optional extras
+
+- **Custom domain** (e.g. `schulzlab.org`): buy the domain from any registrar, then go to **Settings → Pages → Custom domain** and follow GitHub's instructions. Mizzou IT may also be able to point a `missouri.edu` subdomain at it.
+- **Retire the Wix site:** update the "Lab website" link on your Mizzou faculty profile to the new address, and add a link on the Wix home page pointing to the new site.
+- **Preview before publishing:** double-click `index.html` on your computer to open it in your browser.
+
+If something breaks after an edit, open the file's **History** (clock icon at the top of the file) to view and restore an earlier version.
