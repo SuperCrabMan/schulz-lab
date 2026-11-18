@@ -145,8 +145,9 @@
     .pi p { color: var(--muted); margin: 0 0 14px; }
     .pi ul { padding-left: 18px; color: var(--muted); font-size: 15px; margin: 0; }
 
-    .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .member { border: 1px solid var(--line); border-radius: 14px; padding: 28px; background: var(--paper); }
+    .team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    @media (max-width: 1100px) { .team { grid-template-columns: repeat(2, 1fr); } }
+    .member { border: 1px solid var(--line); border-radius: 14px; padding: 24px 22px; background: var(--paper); }
     .avatar {
       width: 56px; height: 56px; border-radius: 50%; background: var(--ink); color: var(--gold);
       display: grid; place-items: center; font-family: var(--serif); font-size: 22px; margin-bottom: 18px; overflow: hidden;
@@ -154,8 +155,9 @@
     .avatar img { width: 100%; height: 100%; object-fit: cover; }
     .member h4 { font-family: var(--serif); font-weight: 500; font-size: 21px; margin: 0; }
     .member .role { margin: 6px 0 12px; font-size: 11.5px; }
-    .member p { color: var(--muted); font-size: 15px; margin: 0 0 14px; }
-    .member a { font-size: 14px; color: var(--gold-deep); text-decoration: none; }
+    .member p { color: var(--muted); font-size: 14.5px; margin: 0 0 14px; }
+    .member { display: flex; flex-direction: column; }
+    .member a { font-size: 14px; color: var(--gold-deep); text-decoration: none; margin-top: auto; }
     .member a:hover { text-decoration: underline; }
 
     .join {
@@ -412,7 +414,7 @@
           <p class="eyebrow">Publications</p>
           <h2>Selected work</h2>
         </div>
-        <p>A selection of recent and representative papers. The complete, up-to-date list is on <a class="link" href="https://scholar.google.com/citations?hl=en&user=PdJpgxkAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Google Scholar.</p>
+        <p>A selection of recent and representative papers. The complete, up-to-date list is on <a href="https://scholar.google.com/citations?hl=en&amp;user=PdJpgxkAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener">Google Scholar</a>.</p>
       </div>
 
       <ol class="pubs">
