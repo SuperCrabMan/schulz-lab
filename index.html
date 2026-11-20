@@ -173,9 +173,9 @@
        the initials bubble, so every card stays the same size. If a photo fails to load,
        it removes itself and the initials show instead. */
     .member { position: relative; }
-    .member .avatar { align-self: flex-end; }
+    .member .avatar { align-self: flex-end; width: 62px; height: 62px; }
     .member-photo {
-      position: absolute; top: 24px; right: 22px; width: 56px; height: 56px; border-radius: 50%;
+      position: absolute; top: 24px; right: 22px; width: 62px; height: 62px; border-radius: 50%;
       object-fit: cover; object-position: center 25%; z-index: 1;
       box-shadow: 0 0 0 2px var(--white), 0 0 0 3px var(--line);
     }
@@ -428,6 +428,7 @@
         <!-- ===== ...to here, then paste and edit ===== -->
 
         <div class="member reveal">
+          <img class="member-photo" src="images/holt.webp" alt="Ashlyn Holt" loading="lazy" onerror="this.remove()">
           <div class="avatar">AH</div>
           <h4>Ashlyn Holt</h4>
           <p class="role">PhD Student · Interdisciplinary Neuroscience</p>
