@@ -198,7 +198,10 @@
     .ug .avatar { width: 34px; height: 34px; font-size: 14px; margin: 0; }
 
     /* Lab alumni */
-    .alumni { margin-top: 56px; }
+    #alumni { background: #efe9dc; border-bottom: 1px solid var(--line); }
+    .alumni { margin-top: 0; }
+    #alumni .alum { border-top-color: #ddd4c2; }
+    #alumni .alumni-group:first-of-type { margin-top: 0; }
     .alumni-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; flex-wrap: wrap; margin-bottom: 22px; }
     .alumni-head h3 { font-size: 30px; }
     .alumni-head p { color: var(--muted); font-size: 15px; margin: 0; max-width: 52ch; }
@@ -283,6 +286,7 @@
       <ul id="menu">
         <li><a href="#research">Research</a></li>
         <li><a href="#people">People</a></li>
+        <li><a href="#alumni">Alumni</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -479,21 +483,27 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ===================== ALUMNI ===================== -->
+  <section id="alumni">
+    <div class="wrap">
       <!-- ===================== LAB ALUMNI ===================== -->
       <!-- To add someone, copy one <div class="alum">…</div> line and edit it.
            For someone whose current position is unknown, delete the third <span>. -->
       <div class="alumni reveal">
-        <div class="alumni-head">
+        <div class="section-head">
           <div>
             <p class="eyebrow">Lab alumni</p>
-            <h3>Where our trainees are now</h3>
+            <h2>Where our trainees are now</h2>
           </div>
           <p>Our former students and postdocs lead labs, build tools in industry, and shape research funding and health care.</p>
         </div>
 
         <p class="alumni-group">Graduate students</p>
         <div class="alumni-list">
-          <div class="alum"><span class="alum-name">Sherryl Henderson</span><span class="alum-meta">Ph.D. · 2016–2024</span><span class="alum-now done"></span></div>
+          <div class="alum"><span class="alum-name">Sherryl Henderson</span><span class="alum-meta">Ph.D. · 2016–2024</span><span class="alum-now done">Completed her Ph.D. in 2024</span></div>
           <div class="alum"><span class="alum-name">Jose Viteri</span><span class="alum-meta">Ph.D. · 2018–2023</span><span class="alum-now">Postdoctoral fellow, NextGen Precision Health, University of Missouri</span></div>
           <div class="alum"><span class="alum-name">Benton Berigan</span><span class="alum-meta">Ph.D. 2019–2022 · Postdoc 2022–2023</span><span class="alum-now">Instrument Product Manager, Bruker Spatial Biology</span></div>
           <div class="alum"><span class="alum-name">Daniel Kick</span><span class="alum-meta">Ph.D. · 2016–2021</span><span class="alum-now">Genome Editing Data Scientist, Bayer</span></div>
