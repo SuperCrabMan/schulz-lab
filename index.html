@@ -120,6 +120,17 @@
     .theme:hover .theme-img { transform: translateX(4px) rotate(-2deg); }
     .theme .theme-img + .num { display: inline-block; margin-top: 72px; }
 
+    /* Featured video */
+    .feature {
+      margin-top: 40px; display: grid; grid-template-columns: minmax(0, 420px) 1fr; gap: 48px; align-items: center;
+      background: var(--ink); color: #fff; border-radius: 14px; padding: 28px; overflow: hidden;
+    }
+    .feature video { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 10px; display: block; background: #222; }
+    .feature .eyebrow { color: var(--gold); }
+    .feature h3 { font-size: 30px; margin-bottom: 14px; }
+    .feature p { color: rgba(255,255,255,.72); margin: 0 0 12px; font-size: 16px; }
+    .feature .caption { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; color: rgba(255,255,255,.45); margin-top: 18px; }
+
     .approach {
       margin-top: 70px; display: grid; grid-template-columns: repeat(3, 1fr);
       border-top: 1px solid var(--line);
@@ -216,7 +227,8 @@
     /* ---------- Phones & tablets ---------- */
     @media (max-width: 900px) {
       .section-head, .pi, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
-      .themes, .team, .approach { grid-template-columns: 1fr; }
+      .themes, .team, .approach, .feature { grid-template-columns: 1fr; }
+      .feature { gap: 24px; padding: 18px; }
       .approach div, .approach div + div { padding: 22px 0; border-left: 0; border-bottom: 1px solid var(--line); }
       .pi-photo { max-width: 260px; }
       .pub { grid-template-columns: 1fr; gap: 8px; }
@@ -323,6 +335,24 @@
             relationships produce stable network output.
           </p>
         </article>
+      </div>
+
+      <!-- ===================== FEATURED VIDEO ===================== -->
+      <div class="feature reveal">
+        <video id="crawlVideo" muted loop playsinline preload="none" poster="images/leech-crawl-poster.webp"
+               aria-label="Video of a medicinal leech crawling in a glass tank after nerve cord transection">
+          <source src="images/leech-crawl.mp4" type="video/mp4">
+        </video>
+        <div>
+          <p class="eyebrow">In the lab</p>
+          <h3>Crawling returns after injury</h3>
+          <p>
+            This leech's nerve cord was completely cut, yet it crawls across the tank. The connections severed by the
+            injury never regrow, so the ganglia below the cut must reorganize to produce coordinated locomotion again.
+          </p>
+          <p>We use this recovery to ask how neurons and circuits change when the inputs they depend on are lost.</p>
+          <p class="caption">Overhead view · played at 3× speed</p>
+        </div>
       </div>
 
       <div class="approach reveal">
@@ -573,6 +603,19 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Featured video: load and play only while on screen (saves data, respects reduced-motion settings)
+    (function () {
+      const v = document.getElementById('crawlVideo');
+      if (!v) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.controls = true; return; }
+      new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { v.preload = 'auto'; v.play().catch(() => { v.controls = true; }); }
+          else v.pause();
+        });
+      }, { threshold: 0.35 }).observe(v);
+    })();
 
     // Hero: three phase-shifted bursting neurons, drawn like intracellular recordings
     (function () {
